@@ -16,6 +16,7 @@ With the Crabiest Crab Game Mods, you get everything you need to make your own a
 - Chat logs
 - Moderation logs
 - Player stats
+- Run multiple servers on the same machine with our sandboxie support
 - Headless mode support to greatly improve performance on machines with no graphics card
 - Watchdog to keep your severs running when they freeze or crash
 - And more!
