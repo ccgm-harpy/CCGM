@@ -1,0 +1,11 @@
+pyopenssl
+ecdsa
+fakeredis
+discord.py
+requests
+pyperclip
+sandboxie
+psutil
+pywin32
+quart
+regex

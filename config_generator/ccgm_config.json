@@ -1,0 +1,218 @@
+{
+ "servers": {
+  "my server name 1": {
+   "shortName": "serverNameNoSpaces",
+   "inviteColor": "#00FF00",
+   "sandboxName": "sandbox name here",
+   "modes": "11111111111111111",
+   "maps": "11111111111111111111111111111111111111111111111111111111111111",
+   "maxPlayers": 40,
+   "voiceEnabled": true,
+   "lobbyType": 2,
+   "requiredStartPlayers": 27,
+   "gameModeSettings": {
+    "crabFight": {
+     "angerProbability": 0,
+     "randomizeHealthProbability": 0,
+     "randomizeSnowballDamageProbability": 0,
+     "maxAngerCrabBalls": 1,
+     "snowballDamageMultiplierMin": 1,
+     "snowballDamageMultiplierMax": 1,
+     "randomHealthMin": 100,
+     "randomHealthMax": 100
+    },
+    "chaos": {
+     "enabled": false,
+     "roundProbability": 100,
+     "weapons": {
+      "ak": {
+       "ammo": 30,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      },
+      "glock": {
+       "ammo": 20,
+       "price": 6,
+       "buyable": true,
+       "dropable": true
+      },
+      "revolver": {
+       "ammo": 25,
+       "price": 1,
+       "buyable": true,
+       "dropable": true
+      },
+      "dual": {
+       "ammo": 6,
+       "price": 10,
+       "buyable": true,
+       "dropable": true
+      },
+      "bat": {
+       "ammo": 1,
+       "price": 2,
+       "buyable": true,
+       "dropable": true
+      },
+      "bomb": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      },
+      "katana": {
+       "ammo": 1,
+       "price": 3,
+       "buyable": true,
+       "dropable": true
+      },
+      "knife": {
+       "ammo": 1,
+       "price": 1,
+       "buyable": true,
+       "dropable": true
+      },
+      "pipe": {
+       "ammo": 1,
+       "price": 3,
+       "buyable": true,
+       "dropable": true
+      },
+      "snowball": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": true,
+       "dropable": true
+      },
+      "stick": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      },
+      "milk": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      },
+      "pizza": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      },
+      "grenade": {
+       "ammo": 1,
+       "price": 0,
+       "buyable": false,
+       "dropable": false
+      }
+     }
+    },
+    "blockDropSequenceProbability": 0,
+    "customMaps": false,
+    "tagSwapProbability": 0,
+    "snowBrawlSwapProbability": 0,
+    "sumoModeProbability": 0,
+    "mapModeSwapPlayerRequirement": 10
+   },
+   "leaderboardWebHook": "your leaderboard webhook url here",
+   "tips": [
+    "Your first tip with discord invite:\n{discordInvite}",
+    "Your second tip here. ETC..."
+   ]
+  }
+ },
+ "compatibilityMode": false,
+ "winsPlayerRequirement": 5,
+ "playerIdsInChat": true,
+ "aliveStateInChat": true,
+ "startRateLimit": 60,
+ "mapModeRateLimit": 150,
+ "reportRateLimit": 60,
+ "ownerId": 0,
+ "ownerIds": [],
+ "ownerRoleId": 0,
+ "adminRoleId": 0,
+ "adminPerms": [
+  "!ban",
+  "!kick",
+  "!kill",
+  "!respawn",
+  "!respawn.others",
+  "!start",
+  "!r",
+  "!v",
+  "!win",
+  "!bc",
+  "!time",
+  "!mute",
+  "!god",
+  "!tp",
+  "!w",
+  "!jumppunch",
+  "!superpunch",
+  "!forcefield",
+  "!pos"
+ ],
+ "moderatorRoleId": 0,
+ "moderatorPerms": [
+  "!ban",
+  "!kick",
+  "!kill",
+  "!respawn",
+  "!bc",
+  "!start",
+  "!mute"
+ ],
+ "remoteCommandsId": 0,
+ "banLogsId": 0,
+ "userReportsId": 0,
+ "inviteCodesWebHook": "your invite codes webhook url here",
+ "discordBotToken": "create a discord bot and paste it's token here",
+ "discordInfoBotToken": "create a second discord bot and paste it's token here",
+ "steamApiKey": "create a steam api key and paste it here",
+ "discordCommandPrefix": "!",
+ "sendLogAfterLines": 2000,
+ "chaosWeaponEventToInventory": true,
+ "chaosWeaponPurchaseToInventory": true,
+ "logChannel": 0,
+ "killFeedMessages": {
+  "playerKilledPlayer": [
+   "killed",
+   "merked",
+   "dropped",
+   "destroyed",
+   "sh!t on",
+   "dunked on",
+   "obliterated",
+   "mucked",
+   "curb stomped",
+   "dropped a fat one on",
+   "unalived",
+   "deleted",
+   "yeeted",
+   "kissed",
+   "murdered"
+  ],
+  "playerSuicide": [
+   "committed dead",
+   "completely failed",
+   "will be missed",
+   "will not be missed",
+   "couldn't take the pressure",
+   "should try harder",
+   "needs a gaming chair",
+   "isn't winning... son",
+   "got mucked",
+   "brother was playing",
+   "went missing",
+   "disappointed us today",
+   "went to heaven",
+   "went to hell",
+   "had their eyes closed"
+  ]
+ }
+}

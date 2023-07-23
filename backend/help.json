@@ -1,0 +1,102 @@
+{
+  "game": [
+    {
+      "title": "**!kick**",
+      "description": "- Kick a player as a temporary punishment or warning.\n- You must specify a player number **!kick #3**"
+    },
+	{
+      "title": "**!tempban**",
+      "description": "- Bans a player temporarily.\n- You must specify a player number, the time and a reason\n- Example usage: **!tempban #3 60d8h20m flying and no knockback** bans #3 for 60 days 8 hours and 20 minutes."
+    },
+    {
+      "title": "**!ban**",
+      "description": "- Bans a player permanently.\n- You must specify a player number and a reason\n- Example usage: **!ban #3 flying and no knockback**"
+    },
+    {
+      "title": "**!kill**",
+      "description": "- Kills a player as a form of punishment. **Keep in mind, killed player will respawn next round**. Only use it when a player is in a 1v1.\n- This command is best for killing yourself so you can spectate for cheaters.\n- You must specify a player number **!kill #3**"
+    },
+    {
+      "title": "**!respawn**",
+      "description": "- Respawn yourself. **Only woks until next round** if player died in normal gameplay (fell in water, blew up etc). Player can respawn and play next round if !kill command was used to kill them.\n- You can respawn another player by specifying a player number **!respawn #3**"
+    },
+    {
+      "title": "**!bc**",
+      "description": "- (__Broadcast__ __chat__) Sends a server message\n- Example usage: **!bc DO NOT ABUSE THE REPORT COMMAND**"
+    },
+    {
+      "title": "**!start**",
+      "description": "- Starts the game **MUST ONLY BE USED IN LOBBY**"
+    },
+    {
+      "title": "**!mute**",
+      "description": "- Mutes a player in text chat for a specified time.\n- Example usage: **!mute #3 5m30s** mutes #3 5 minutes 30 seconds."
+    },
+	{
+      "title": "**!unmute**",
+      "description": "- Unmutes a player in text chat.\n- Example usage: **!unmute #3** unmutes #3"
+    },
+    {
+      "title": "**!chaos**",
+      "description": "- Toggles the chaos game mode setting on or off."
+    },
+    {
+      "title": "**!giveweapon** / **!gw**",
+      "description": "- Places weapon in player's inventory for free by ID or name. Player ID is optional.\n- Example usage: **!giveweapon #3 ak** or **!gw 0**"
+    },
+    {
+      "title": "**!dropweapon** / **!dw**",
+      "description": "- Drops weapon for free by ID or name. Player ID is optional.\n- Example usage: **!dropweapon #3 ak** or **!dw 0**"
+    }
+  ],
+  "discord": [
+    {
+      "title": "**{prefix}cmd**",
+      "description": "- Executes a command on any of our servers.\n- You must specify a server ('chaos', 'default', 'race', 'tag', 'custom', 'all') and a command\n- Example usage: **{prefix}cmd chaos {prefix}ban #3 flying and no knockback**"
+    },
+    {
+      "title": "**{prefix}start**",
+      "description": "- Starts your server + watchdog process.\n- You must specify a server to start ('chaos', 'default', 'race', 'tag', 'custom')\n- Example usage: **{prefix}start chaos**"
+    },
+    {
+      "title": "**{prefix}stop**",
+      "description": "- Stops your server + watchdog process.\n- You must specify a server to stop ('chaos', 'default', 'race', 'tag', 'custom')\n- Example usage: **{prefix}stop chaos**"
+    },
+    {
+      "title": "**{prefix}restart**",
+      "description": "- Restarts one of our game servers.\n- You must specify a server to restart ('chaos', 'default', 'race', 'tag', 'custom')\n- Example usage: **{prefix}restart chaos**"
+    },
+    {
+      "title": "**{prefix}discordinvite**",
+      "description": "- Updates the discord invite code that will show in game.\n- Example usage: **{prefix}discordinvite <https://discord.gg/ccgm> **"
+    },
+    {
+      "title": "**{prefix}unban**",
+      "description": "- Unbans a player. You must specify a profileurl / steamid64 and a reason\n- Example usage: **{prefix}unban <https://steamcommunity.com/id/harpy_eagle/> didn't mean to ban them**"
+    },
+    {
+      "title": "**{prefix}ban**",
+      "description": "- Bans a player by profileurl / steamid64 (whether they're in game or not). You must specify a profileurl / steamid64 and a reason\n- Example usage: **{prefix}ban <https://steamcommunity.com/id/harpy_eagle/> flying and god mode**"
+    },
+    {
+      "title": "**{prefix}baninfo**",
+      "description": "- Lookup a player's ban information by profileurl / steamid64. You must specify a profileurl / steamid64\n- Example usage: **{prefix}baninfo <https://steamcommunity.com/id/harpy_eagle/>**"
+    },
+    {
+      "title": "**{prefix}playerinfo**",
+      "description": "- Lookup a player's information. You must specify a profileurl / steamid64\n- Example usage: **{prefix}playerinfo <https://steamcommunity.com/id/harpy_eagle/>**"
+    },
+    {
+      "title": "**{prefix}permset**",
+      "description": "- Set a player's perms.\n- Must specify a profileurl / steamid64 and (user, moderator or admin).\n- Example usage: **{prefix}permset <https://steamcommunity.com/id/harpy_eagle/> admin**"
+    },
+    {
+      "title": "**{prefix}steamid**",
+      "description": "- Gets a player's steamID64.\n- Must specify a profileurl.\n- Example usage: **{prefix}steamid <https://steamcommunity.com/id/harpy_eagle/>**"
+    },
+    {
+      "title": "**{prefix}sync**",
+      "description": "- Tells Discord to load / reload your slash commands"
+    }
+  ]
+}
