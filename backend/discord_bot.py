@@ -347,7 +347,6 @@ async def ban(ctx, steam, *, ban_reason, banTimeSeconds="36500d"):
 @tasks.loop(seconds=1, reconnect=True)
 async def check_reports():
     try:
-        reportsResponse = requests.get(f"{serverUrl}/reports")
         reportsResponse = requests.get(f"{serverUrl}/reports").json()
 
         if "reports" in reportsResponse:
