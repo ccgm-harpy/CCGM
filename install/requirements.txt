@@ -1,5 +1,4 @@
-pyopenssl
-ecdsa
+panel
 fakeredis
 discord.py
 requests
