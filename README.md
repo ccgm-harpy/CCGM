@@ -26,6 +26,9 @@ https://github.com/Danilo1301/crab-game-server-mod
 
 More specifically, version 1.3.1
 
+Injector is not mine either, thank you nefarius
+https://github.com/nefarius/Injector
+
 ## Disclamer
 I am a self taught programmer and made this in my free time. There is a TON of room for updates and improvement. Their is no guarentee that this software will work as intended. That said, please don't hesitate to send me your suggestions.
 
