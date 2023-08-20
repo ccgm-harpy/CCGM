@@ -1,0 +1,7 @@
+1. Install .net Framework > 4.0
+https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-web-installer
+
+2. Install webview2 runtime
+https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section
+
+3. Double click launch.bat

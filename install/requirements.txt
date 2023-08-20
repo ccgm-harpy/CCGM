@@ -8,3 +8,4 @@ psutil
 pywin32
 quart
 regex
+pywebview
