@@ -9,13 +9,42 @@ import aiohttp
 import requests
 import os
 
+# Config generator does not support numbers big enough for channel / user ids
+# Update them to strings if user is from an older patch
+# Rest of code is expecting integers so we'll convert them back here
+def patch_ccgm_config(ccgmConfig):
+    patchKeys = [
+        "adminRoleId",
+        "banLogsId",
+        "moderatorRoleId",
+        "ownerRoleId",
+        "ownerId",
+        "remoteCommandsId",
+        "userReportsId",
+        "ownerIds"
+    ]
+
+    for patchKey in patchKeys:
+        if patchKey == "ownerIds":
+            tempOwnerIds = []
+            
+            for ownerId in ccgmConfig[patchKey]:
+                tempOwnerIds.append(int(ownerId))
+
+            ccgmConfig[patchKey] = tempOwnerIds
+
+        else:
+            ccgmConfig[patchKey] = int(ccgmConfig[patchKey])
+
+    return ccgmConfig
+
 intents = Intents.default()
 intents.message_content = True
 
 client = commands.Bot(command_prefix='*', intents=intents, help_command=None)
 
 with open("ccgm_config.json", "r") as f:
-    ccgmConfig = json.load(f)
+    ccgmConfig = patch_ccgm_config(json.load(f))
 
 STEAMAPIKEY = ccgmConfig["steamApiKey"]
 TOKEN = ccgmConfig["discordInfoBotToken"]

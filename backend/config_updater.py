@@ -34,6 +34,7 @@ def read_ccgm_config():
 
 def copy_ccgm_config():
     copy("ccgm_config.json", "ccgm_config_backup.json")
+    copy("..\\config_generator\\ccgm_config.json", "..\\config_generator\\ccgm_config_backup.json")
 
 def update_ccgm_config_servers(oldConfig, newConfig):
     for key, value in newConfig.items():
@@ -57,6 +58,33 @@ def request_new_config():
         requests.get("https://pastebin.com/raw/NMLkj8CC").content
     )
 
+# Config generator does not support numbers big enough for channel / user ids
+# Update them to strings if user is from an older patch
+def patch_ccgm_config(ccgmConfig):
+    patchKeys = [
+        "adminRoleId",
+        "banLogsId",
+        "moderatorRoleId",
+        "ownerRoleId",
+        "ownerId",
+        "remoteCommandsId",
+        "userReportsId",
+        "ownerIds"
+    ]
+
+    for patchKey in patchKeys:
+        if patchKey == "ownerIds":
+            tempOwnerIds = []
+            
+            for ownerId in ccgmConfig[patchKey]:
+                tempOwnerIds.append(str(ownerId))
+
+            ccgmConfig[patchKey] = tempOwnerIds
+
+        else:
+            ccgmConfig[patchKey] = str(ccgmConfig[patchKey])
+
+    return ccgmConfig
 
 
 def update_ccgm_config(ccgmConfig):
@@ -74,8 +102,9 @@ def update_ccgm_config(ccgmConfig):
     return ccgmConfig
 
 def save_ccgm_config(ccgmConfig):
-    with open("ccgm_config.json", "w") as f:
-        f.write(json.dumps(ccgmConfig, indent=1))
+    for configName in ["ccgm_config.json", "..\\config_generator\\ccgm_config.json"]:
+        with open(configName, "w") as f:
+            f.write(json.dumps(ccgmConfig, indent=1))
 
 def main():
     try:
@@ -87,7 +116,11 @@ def main():
         return
     
     copy_ccgm_config()
-    ccgmConfig = update_ccgm_config(ccgmConfig)
+
+    ccgmConfig = patch_ccgm_config(
+        update_ccgm_config(ccgmConfig)
+    )
+
     save_ccgm_config(ccgmConfig)
 
     print("Your ccgm_config.json file has been updated!")

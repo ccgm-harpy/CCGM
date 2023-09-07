@@ -132,10 +132,10 @@
  "startRateLimit": 60,
  "mapModeRateLimit": 150,
  "reportRateLimit": 60,
- "ownerId": 0,
+ "ownerId": "0",
  "ownerIds": [],
- "ownerRoleId": 0,
- "adminRoleId": 0,
+ "ownerRoleId": "0",
+ "adminRoleId": "0",
  "adminPerms": [
   "!ban",
   "!kick",
@@ -157,7 +157,7 @@
   "!forcefield",
   "!pos"
  ],
- "moderatorRoleId": 0,
+ "moderatorRoleId": "0",
  "moderatorPerms": [
   "!ban",
   "!kick",
@@ -167,9 +167,9 @@
   "!start",
   "!mute"
  ],
- "remoteCommandsId": 0,
- "banLogsId": 0,
- "userReportsId": 0,
+ "remoteCommandsId": "0",
+ "banLogsId": "0",
+ "userReportsId": "0",
  "inviteCodesWebHook": "your invite codes webhook url here",
  "discordBotToken": "create a discord bot and paste it's token here",
  "discordInfoBotToken": "create a second discord bot and paste it's token here",

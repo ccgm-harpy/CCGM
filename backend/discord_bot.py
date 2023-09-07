@@ -7,11 +7,40 @@ from discord import Intents
 from discord.ext import tasks, commands
 import watch_dog
 
+# Config generator does not support numbers big enough for channel / user ids
+# Update them to strings if user is from an older patch
+# Rest of code is expecting integers so we'll convert them back here
+def patch_ccgm_config(ccgmConfig):
+    patchKeys = [
+        "adminRoleId",
+        "banLogsId",
+        "moderatorRoleId",
+        "ownerRoleId",
+        "ownerId",
+        "remoteCommandsId",
+        "userReportsId",
+        "ownerIds"
+    ]
+
+    for patchKey in patchKeys:
+        if patchKey == "ownerIds":
+            tempOwnerIds = []
+            
+            for ownerId in ccgmConfig[patchKey]:
+                tempOwnerIds.append(int(ownerId))
+
+            ccgmConfig[patchKey] = tempOwnerIds
+
+        else:
+            ccgmConfig[patchKey] = int(ccgmConfig[patchKey])
+
+    return ccgmConfig
+
 intents = Intents.default()
 intents.message_content = True
 
 with open("ccgm_config.json", "r") as f:
-    ccgmConfig = json.load(f)
+    ccgmConfig = patch_ccgm_config(json.load(f))
 
 prefix = ccgmConfig["discordCommandPrefix"]
 
@@ -284,7 +313,7 @@ async def discordinvite(ctx, discord_invite):
         await ctx.send(embed = embed)
 
 @client.hybrid_command(name="ban", description="Bans a player from your servers")
-async def ban(ctx, steam, *, ban_reason, banTimeSeconds="36500d"):
+async def ban(ctx, steam, *, ban_reason, ban_time_seconds="36500d"):
     user = ctx.author
     perm = get_permissions_level(user)
 
@@ -303,15 +332,15 @@ async def ban(ctx, steam, *, ban_reason, banTimeSeconds="36500d"):
             playerConfig = requests.post(f"{serverUrl}/player_info", json={"steamId": steamId64})
 
             if playerConfig.status_code == 200:
-                banTimeSeconds = seconds_from_string(banTimeSeconds)
-                banTimeString = format_seconds(banTimeSeconds)
+                ban_time_seconds = seconds_from_string(ban_time_seconds)
+                banTimeString = format_seconds(ban_time_seconds)
                 playerConfig = playerConfig.json()
 
                 if not playerConfig["isBanned"]:
                     playerConfig["isBanned"] = True
                     playerConfig["banBy"] = user.id
                     playerConfig["banReason"] = ban_reason
-                    playerConfig["banUntil"] = banTimeSeconds + time.time()
+                    playerConfig["banUntil"] = ban_time_seconds + time.time()
                     
                     requests.post(f"{serverUrl}/save_player_config", json=playerConfig)
                     requests.post(f"{serverUrl}/remote_bans", json={

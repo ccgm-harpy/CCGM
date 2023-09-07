@@ -10,6 +10,35 @@ import os
 #from pythonLib.authentication import Authenticator, InvalidNonceError
 import json
 
+# Config generator does not support numbers big enough for channel / user ids
+# Update them to strings if user is from an older patch
+# Rest of code is expecting integers so we'll convert them back here
+def patch_ccgm_config(ccgmConfig):
+    patchKeys = [
+        "adminRoleId",
+        "banLogsId",
+        "moderatorRoleId",
+        "ownerRoleId",
+        "ownerId",
+        "remoteCommandsId",
+        "userReportsId",
+        "ownerIds"
+    ]
+
+    for patchKey in patchKeys:
+        if patchKey == "ownerIds":
+            tempOwnerIds = []
+            
+            for ownerId in ccgmConfig[patchKey]:
+                tempOwnerIds.append(int(ownerId))
+
+            ccgmConfig[patchKey] = tempOwnerIds
+
+        else:
+            ccgmConfig[patchKey] = int(ccgmConfig[patchKey])
+
+    return ccgmConfig
+
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 app = Quart(__name__)
@@ -24,8 +53,7 @@ serverCommandsCustom = {}
 serverBans = {}
 
 with open("ccgm_config.json", "r") as f:
-    ccgmConfig = json.load(f)
-    print(ccgmConfig["compatibilityMode"])
+    ccgmConfig = patch_ccgm_config(json.load(f))
 
 #authenticator = Authenticator(ccgmConfig)
 
