@@ -46,4 +46,4 @@ Once it's complete, I'll provide the link here.
 ## Community and Support
 
 Join us on Discord!</br>
-[https://discord.gg/ccgm](https://discord.gg/ccgm)
+[https://discord.gg/ccgm](https://dsc.gg/ccgm)
