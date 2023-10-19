@@ -26,10 +26,13 @@ With Crabiest Crab Game Mods, you'll have everything you need to create your own
 - Watchdog to keep your servers running even when they freeze or crash
 - And more!
 
-CCGM was developed by modifying Danilo's work:</br>
+CCGM was developed by modifying Danilo's mod:</br>
 [Crab Game Server Mod](https://github.com/Danilo1301/crab-game-server-mod)
 
 More specifically, version 1.3.1.
+
+CCGM also modified o7moon's mod:</br>
+[Crab Game Map Mod](https://github.com/o7Moon/CrabGame.MapMod)
 
 The injector is not mine either; credit to nefarius:</br>
 [Nefarius Injector](https://github.com/nefarius/Injector)
