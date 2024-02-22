@@ -343,7 +343,7 @@ void ChatCommands::ModeratorGiveWeapon(Command* command, Player* moderatorPlayer
 			Weapons::DropWeapon(targetPlayer->m_ClientId, weaponId);
 		}
 		else {
-			Weapons::DropWeapon(targetPlayer->m_ClientId, weaponId);
+			//Weapons::DropWeapon(targetPlayer->m_ClientId, weaponId);
 			Weapons::GiveWeapon(targetPlayer->m_ClientId, weaponId);
 		}
 

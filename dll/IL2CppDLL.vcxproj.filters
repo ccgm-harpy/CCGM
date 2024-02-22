@@ -179,6 +179,7 @@
     <ClInclude Include="user\gamemodes\Chaos.h" />
     <ClInclude Include="user\ChatCommands.h" />
     <ClInclude Include="user\HTTP.h" />
+    <ClInclude Include="user\RateLimiter.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="appdata">

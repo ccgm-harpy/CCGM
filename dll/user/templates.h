@@ -742,7 +742,7 @@ void Template_ServerSend_SendChatMessage(uint64_t fromClient, monoString* messag
 auto LobbyManager_BanPlayer = new HookFunction<void, void*, uint64_t, const void*>(13701920);
 void Template_LobbyManager_BanPlayer(void* _this, uint64_t steamId, const void* method)
 {
-	
+	LobbyManager_BanPlayer->original(_this, steamId, method);
 }
 
 auto LobbyManager_AddPlayerToLobby = new HookFunction<void, void*, void*>(13700096);

@@ -6,10 +6,12 @@
 #include "Chat.h"
 #include "Discord.h"
 #include "HTTP.h"
+#include "RateLimiter.h"
 
 std::map<long long, Player*> PlayerUtils::playerList;        // Stores all players into a map: clientID, PlayerOBJ
 Vector3 PlayerUtils::m_SpawnPosition = Vector3({ 0, 5, 0 }); // Spawn position tracking for respawning players
 bool PlayerUtils::m_CanUpdateSpawnPosition = true;		     // Prevents spawn position from updating when not needed
+RateLimiter limiter(1, chrono::seconds(2));					 // Prevents players from performing DOS attack by repeatedly connecting in lobby
 
 void Player::SaveConfig() {
 	HTTP::PostData(this->m_PlayerConfig, "/save_player_config");
@@ -146,11 +148,18 @@ Player* PlayerUtils::LoadPlayerConfig(long long clientId, int playerId=1) {
 // If they are, they will be kicked
 void PlayerHooks::AddedToLobby(long long clientId) {
 	std::cout << "Player connected: " << clientId << std::endl;
-	Player* player = PlayerUtils::LoadPlayerConfig(clientId);
+	if (limiter.allowRequest(clientId)) {
+		Player* player = PlayerUtils::LoadPlayerConfig(clientId);
 
-	if (player->IsBanned()) {
-		std::cout << "player kicked " << player->m_ClientId << std::endl;
-		Mod::KickPlayer(player->m_ClientId);
+		if (player->IsBanned()) {
+			std::cout << "player kicked " << player->m_ClientId << std::endl;
+			Mod::KickPlayer(player->m_ClientId);
+		}
+	}
+	else {
+		// Potential DOS attack detected, properly ban player to prevent future connections
+		Chat::SendServerMessage("Potential DOS detected. Banned offender.");
+		Mod::BanPlayer(clientId);
 	}
 }
 

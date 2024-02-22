@@ -93,6 +93,7 @@
     <ClInclude Include="user\Mod.h" />
     <ClInclude Include="user\pch.h" />
     <ClInclude Include="user\Player.h" />
+    <ClInclude Include="user\RateLimiter.h" />
     <ClInclude Include="user\Server.h" />
     <ClInclude Include="user\gamemodes\SnowBrawl.h" />
     <ClInclude Include="user\SocketServer.h" />

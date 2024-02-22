@@ -47,8 +47,13 @@ prefix = ccgmConfig["discordCommandPrefix"]
 client = commands.Bot(command_prefix=prefix, intents=intents, help_command=None)
 
 
-with open("help.json", "w") as f:
-    f.write(requests.get("https://pastebin.com/raw/EkAeqSsN").content.decode("utf-8"))
+r = requests.get("https://pastebin.com/raw/EkAeqSsN")
+
+if r.status_code == 200:
+    with open("help.json", "w") as f:
+        f.write(r.content.decode("utf-8"))
+else:
+    print("failed to download help.json, using old instead")
 
 with open("help.json", "r") as f:
     helpJson = json.load(f)
