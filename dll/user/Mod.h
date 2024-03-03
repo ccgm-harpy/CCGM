@@ -60,6 +60,7 @@ public:
 	static bool mouseDown;
 	static bool mouseUp;
 	static int clickButton;
+	static long long allowedBanId;
 
 	static void SendFallingBlock(float speed, int32_t coords, uint64_t steamId);
 	static void SendFallingBlocks(float speed, int32_t coords);

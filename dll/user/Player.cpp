@@ -159,6 +159,7 @@ void PlayerHooks::AddedToLobby(long long clientId) {
 	else {
 		// Potential DOS attack detected, properly ban player to prevent future connections
 		Chat::SendServerMessage("Potential DOS detected. Banned offender.");
+		Mod::allowedBanId = clientId;
 		Mod::BanPlayer(clientId);
 	}
 }

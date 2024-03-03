@@ -28,6 +28,7 @@ std::chrono::system_clock::time_point Mod::m_LastUpdatedTime;
 bool Mod::mouseDown = false;
 bool Mod::mouseUp = false;
 int Mod::clickButton = 0;
+long long Mod::allowedBanId = 0;
 
 void Mod::Init() {
 	std::cout << "[Mod] Init v" << m_Version << std::endl;
